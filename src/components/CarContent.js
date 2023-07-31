@@ -29,6 +29,7 @@ const CartContent = () => {
   </Wrapper>
 }
 const Wrapper = styled.section`
+
   .link-container {
     display: flex;
     justify-content: space-between;

@@ -16,24 +16,20 @@ const ProductImages = ({ images = [{ url: '' }] }) => { //images firstly is unde
 
 const Wrapper = styled.section`
 
-  .main {
-    height: 550px;
-  
-  }
   img {
-    width:100%;
-    height:100%;
+    width:100%; 
     display: block;
     border-radius: var(--radius);
     object-fit: cover;
   }
   .gallery {
     margin-top: 1rem;
+    margin-bottom:2rem;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 1rem;
     img {
-      height: 100px;
+      width: 100px;
       cursor: pointer;
     }
   }

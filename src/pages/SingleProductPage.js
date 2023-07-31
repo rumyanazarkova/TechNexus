@@ -86,7 +86,7 @@ const SingleProductPage = () => {
 const Wrapper = styled.main`
   .product-center {
     display: grid;
-    gap: 4rem;
+    gap:3rem;
     margin-top: 2rem;
   }
   .price {
@@ -99,13 +99,13 @@ const Wrapper = styled.main`
   }
   .desc {
     line-height: 2;
-    max-width: 45em;
+    max-width: 45rem;
   }
   .info {
     text-transform: capitalize;
     width: 300px;
     display: grid;
-    grid-template-columns: 125px 1fr;
+    grid-template-columns: 1fr 1fr;
     span {
       font-weight: 700;
     }
@@ -113,12 +113,12 @@ const Wrapper = styled.main`
 
   @media (min-width: 992px) {
     .product-center {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr auto;
       align-items: center;
     }
-    .price {
-      font-size: 1.25rem;
-    }
+   .content{
+    
+   }
   }
 `
 

@@ -151,7 +151,8 @@ const Wrapper = styled.section`
     padding: 0.25rem;
   }
   .colors {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5, 1.5rem);
     align-items: center;
   }
   .color-btn {
@@ -161,15 +162,20 @@ const Wrapper = styled.section`
     border-radius: 50%;
     background: #222;
     margin-right: 0.5rem;
-    border: none;
+    border: 1px solid var(--clr-grey-6);
     cursor: pointer;
-    opacity: 0.5;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     svg {
+      z-index: -10;
       font-size: 0.5rem;
       color: var(--clr-white);
+      width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 0.65rem solid var(--clr-primary-7);
     }
   }
   .all-btn {
@@ -177,10 +183,11 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
     margin-right: 0.5rem;
-    opacity: 0.5;
+    opacity: 1;
   }
   .active {
-    opacity: 1;
+    color:var(--clr-primary-3);
+    font-weight:500;
   }
   .all-btn .active {
     text-decoration: underline;

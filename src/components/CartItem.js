@@ -43,20 +43,18 @@ const Wrapper = styled.article`
   .subtotal {
     display: none;
   }
-  .price {
-    display: none;
-  }
+
   display: grid;
-  grid-template-columns: 200px auto auto;
+  grid-template-columns:  repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: 75px;
-  gap: 3rem 1rem;
+  gap: 2rem 1rem;
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
   .title {
     grid-template-rows: 75px;
     display: grid;
-    grid-template-columns: 75px 125px;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     text-align: left;
     gap: 1rem;
@@ -92,7 +90,18 @@ const Wrapper = styled.article`
     }
   }
   .price-small {
-    color: var(--clr-primary-5);
+      display: none;
+    }
+    .price {
+      display: block;
+      font-size: 1rem;
+      color: var(--clr-red-dark);
+      font-weight: 400;
+    }
+    .old-price{
+    text-decoration: line-through;
+    color: var(--clr-grey-6);
+    font-weight:400;
   }
   .amount-btns {
     width: 75px;

@@ -37,7 +37,9 @@ margin-bottom:3rem;
     padding-top: 2rem;
     @media(max-width: 1200px){
     padding-left:3rem;
-  
+    }
+    @media(max-width:650px){
+      display:none;
     }
   }
 

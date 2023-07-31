@@ -80,6 +80,11 @@ const Wrapper = styled.section`
   @media (min-width: 1280px) {
     padding: 15rem 0;
   }
+  @media(max-width:650px){
+    .section-center{
+      padding:0;
+    }
+  }
 `
 
 export default Contact
