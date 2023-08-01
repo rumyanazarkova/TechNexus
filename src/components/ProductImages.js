@@ -38,13 +38,13 @@ const Wrapper = styled.section`
   }
   @media (max-width: 576px) {
     .main {
-      height: 300px;
-      width:450px;
+      min-height: 15vh;
+      min-width: 20vh;
     }
     .gallery {
       img {
-        height: 50px;
-        width:80px;
+        max-height: 10vh;
+        max-width:13vw;
       }
     }
   }

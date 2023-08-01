@@ -84,6 +84,22 @@ const Wrapper = styled.section`
     .section-center{
       padding:0;
     }
+    .content {
+      display: grid;
+      grid-template-rows:1fr 1fr;
+      max-width:300px;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .form-input{
+      min-width:70%;
+    }
+    .submit-btn{
+      min-width:30%;
+    }
+ 
+ 
   }
 `
 

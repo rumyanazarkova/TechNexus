@@ -64,19 +64,18 @@ const FavoritesItem = ({ id, name, amount, images, price, stars, old_price, ship
 
 const Wrapper = styled.article`
  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns:  repeat(auto-fit, minmax(15vw, auto));
   grid-template-rows: 75px;
-  gap: 3rem 1rem;
+  gap: 1rem 0.5rem;
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
+
   .title {
+    display:grid;
     grid-template-rows: 75px;
-    display: grid;
-    grid-template-columns: 75px 125px;
     align-items: center;
     text-align: left;
-    gap: 1rem;
   }
   .price-small {
       display: none;
@@ -267,6 +266,33 @@ const Wrapper = styled.article`
       }
   }
   }
+  @media (max-width: 520px) {
+    display:flex;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 75px;
+    justify-items: center;
+    align-items: center;
+    .name {
+      font-size: 0.6rem;
+    }
+    img {
+      max-width:7rem;
+    }
+    .title {  
+      display: grid;
+      grid-template-columns: 13vw 23vw;
+      align-items: center;
+      gap: 0.5rem;
+      text-align: left;
+    }
+    .price {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--clr-red-dark);
+      font-weight: 400;
+    }
+   
+}
 `
 
 export default FavoritesItem

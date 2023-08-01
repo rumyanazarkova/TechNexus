@@ -45,14 +45,13 @@ const Wrapper = styled.article`
   }
 
   display: grid;
-  grid-template-columns:  repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns:  repeat(auto-fit, minmax(15vw, auto));
   grid-template-rows: 75px;
-  gap: 2rem 1rem;
+  gap:  1rem 0.2rem;
   justify-items: center;
   margin-bottom: 3rem;
   align-items: center;
   .title {
-    grid-template-rows: 75px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -132,6 +131,15 @@ const Wrapper = styled.article`
         background: var(--clr-red-light);
         color:white;
       }
+  }
+  @media (max-width: 620px) {
+    img {
+     width:100%;
+     height: 100%;
+     display: block;
+     border-radius: var(--radius);
+     object-fit:contain;
+  }
   }
   @media (min-width: 776px) {
     .subtotal {

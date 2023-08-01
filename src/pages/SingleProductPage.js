@@ -52,7 +52,9 @@ const SingleProductPage = () => {
         back to products
       </Link>
       <div className='product-center'>
+        <div className='images'>
         <ProductImages images={images} />
+        </div>
         <section className='content'>
           <h2>{name}</h2>
           <Stars stars={stars} reviews={reviews} />
@@ -84,11 +86,14 @@ const SingleProductPage = () => {
 }
 
 const Wrapper = styled.main`
+   padding:0px;
+   
+
   .product-center {
-    display: grid;
-    gap:3rem;
+    display: grid; 
     margin-top: 2rem;
   }
+  
   .price {
     color: var(--clr-red-dark);
   }
@@ -99,6 +104,7 @@ const Wrapper = styled.main`
   }
   .desc {
     line-height: 2;
+    display: flex;
     max-width: 45rem;
   }
   .info {
@@ -116,9 +122,6 @@ const Wrapper = styled.main`
       grid-template-columns: 1fr auto;
       align-items: center;
     }
-   .content{
-    
-   }
   }
 `
 
