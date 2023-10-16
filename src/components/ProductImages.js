@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-const ProductImages = ({ images = [{ url: '' }] }) => { //images firstly is undefined and to esc errors we set it to empty array with empty url (to esc main.ur err)
+const ProductImages = ({ images = [{ url: '' }] }) => { 
   const [main, setMain] = useState(images[0]);
 
   return <Wrapper>

@@ -32,10 +32,10 @@ const SingleProductPage = () => {
   useEffect(() => {
     if (error) {
       setTimeout(() => {
-        navigate('/') 
+        navigate('/')
       }, 3000)
     }
-  }, [error]) 
+  }, [error])
 
   if (loading) {
     return <Loading />
@@ -47,82 +47,114 @@ const SingleProductPage = () => {
 
   return <Wrapper>
     <PageHero title={name} product />
-    <div className='section section-center page'>
-      <Link to='/products' className='btn'>
-        back to products
-      </Link>
-      <div className='product-center'>
+
+    <section className='product'>
+
+      <div className='button-image'>
+        <Link to='/products'>
+          <button className='generic-btn'>back to products</button>
+        </Link>
+
         <div className='images'>
-        <ProductImages images={images} />
+          <ProductImages images={images} />
         </div>
-        <section className='content'>
-          <h2>{name}</h2>
-          <Stars stars={stars} reviews={reviews} />
-          <h5 className='price'>{formatPrice(price)}</h5>
+      </div>
+
+      <div className='content'>
+        <h2>{name}</h2>
+        <Stars stars={stars} reviews={reviews} />
+
+        <div className='price'>
+          <h5>{formatPrice(price)}</h5>
           <h5 className='old-price'>{formatPrice(old_price)}</h5>
-          <p className='desc'>{description}</p>
-          <p className='info'>
+        </div>
+
+        <p className='desc'>{description}</p>
+
+        <div className='item-small-info'>
+          <p>
             <span>Available: </span>
             {stock > 0 ? 'In stock' : 'Out of stock'}
           </p>
-          <p className='info'>
+          <p>
             <span>SKU: </span>
             {sku}
           </p>
-          <p className='info'>
+          <p>
             <span>Brand: </span>
             {company}
           </p>
-          <p className='info'>
-            {shipping && <span>Free Shipping</span>}
+          <p>
+            {shipping && <span className='shipping'>Free Shipping</span>}
           </p>
           <hr />
+        </div>
+
+        <div className='add-to-cart'>
           {stock > 0 && <AddToCart product={product} />}
-         
-        </section>
+        </div>
       </div>
-    </div>
+
+    </section>
+
   </Wrapper>
 }
 
 const Wrapper = styled.main`
-   padding:0px;
-   
+display: flex;
+flex-direction: column;
+.product{
+  display:grid;
+  padding:2rem;
+}
 
-  .product-center {
-    display: grid; 
-    margin-top: 2rem;
-  }
-  
-  .price {
-    color: var(--clr-red-dark);
-  }
-  .old-price{
-    text-decoration: line-through;
-    color: var(--clr-grey-6);
-    font-weight:400;
-  }
-  .desc {
-    line-height: 2;
-    display: flex;
-    max-width: 45rem;
-  }
-  .info {
-    text-transform: capitalize;
-    width: 300px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    span {
-      font-weight: 700;
-    }
-  }
+.button-image{
+  display: flex;
+  flex-direction: column;
+  gap:1.5rem;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap:.7rem;
+}
 
-  @media (min-width: 992px) {
-    .product-center {
-      grid-template-columns: 1fr auto;
-      align-items: center;
-    }
-  }
+.price{
+  font-size: 1.5rem;
+}
+.item-small-info span{
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var( --clr-grey-3);
+}
+.item-small-info{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 1.1rem;
+ 
+}
+.item-small-info .shipping{
+  color: var(--clr-red-dark);
+}
+@media (min-width: 1200px){
+padding:0 5rem;
+   .product{
+  grid-template-columns: 1fr 1fr;
+  gap:2rem;
+} 
+.generic-btn{
+  font-size: 1.2rem;
+}
+.content{
+  gap:1rem;
+}
+p{
+  font-size:1.2rem;
+}
+}
+
 `
 
 export default SingleProductPage

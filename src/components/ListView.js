@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { formatPrice } from '../utils/helpers'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import FeaturedStars from './FeaturedStars'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { useFavoritesContext } from '../context/favorites_context'
 
 
+
 const ListView = ({ products }) => {
-  const { favorites, addToFavorites, removeFavorites } = useFavoritesContext();
+  const navigate=useNavigate()
+  const { addToFavorites} = useFavoritesContext();
   return <Wrapper>{
     products.map((product) => {
       const { id, image, name, price, description, stars, old_price, shipping } = product;
@@ -19,97 +20,99 @@ const ListView = ({ products }) => {
       product['images'] = tempImage;
 
       return <article key={id}>
-        <div>
-          <div className='favorites'>
-            {favorites.find((item) => item.id === id) ?
-              (<AiFillHeart onClick={() => removeFavorites(id)} />) : (
-                <AiOutlineHeart onClick={() => addToFavorites(id, amount, product)} />
-              )
-            }
-          </div>
-          {shipping && <div className='free-shipping'>Free Shipping</div>}
+       <div className='img-container'>
+          {shipping && <div className='label free-shipping'>Free Shipping</div>}
           <Link to={`/products/${id}`} >
             <img src={image} alt={name}></img>
           </Link>
-        </div>
-        <div>
+          </div>
+
+        <div className='product-info'>
           <Link to={`/products/${id}`} >
-            <h4>{name}</h4>
+            <h3>{name}</h3>
           </Link>
           <FeaturedStars stars={stars} />
-          <h5 className='price'>{formatPrice(price)}</h5>
+          <div className='price'>
+          <h5>{formatPrice(price)}</h5>
           <h5 className='old-price'>{formatPrice(old_price)}</h5>
+          </div>
           <p>{description.substring(0, 150)}...</p>
-          <Link to={`/products/${id}`} className='btn'>Details</Link>
+        </div>
+        <div className='btns'>
+        <button onClick={()=>navigate(`/products/${id}`)}>Details</button>
+        <button onClick={() => addToFavorites(id, amount, product)}>Add to favorites</button>
         </div>
       </article>
     })
   }</Wrapper>
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled.main`
   display: grid;
-  row-gap: 3rem;
-
-  .favorites{
-    z-index:9999;
-    cursor: pointer;
-    svg {
-      font-size: 1.5rem;
-      color: var(--clr-primary-3);
-      &:hover {
-        color: var(--clr-primary-8);
-      }
-    }
+  gap:2rem;
+  padding:1rem 2rem;
+  h3{
+    font-weight: 500;
   }
-
-  img {
+  img{
+    width: 70%;
+  }
+  article{
+    display: grid;
+    position: relative;
+  }
+  .btns{
+    display: flex;
+    gap:1rem;
+  }
+  button{
+    border: none;
+    background: var(--clr-primary-1);
+    color:white;
+    padding:.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  button:hover {
+  background: var(--clr-primary-4);
+}
+.free-shipping{
+  top:3rem;
+  left:0;
+}
+.product-info{
+  display: flex;
+  flex-direction: column;
+  gap:.4rem;
+  margin-bottom:.4rem;
+}
+@media (min-width: 1000px){
+  gap:4rem;
+  article{
+   display:flex; 
+   gap:2rem;
+   justify-content: center;
+   align-items: center;
+  }
+  img{
     width: 100%;
-    display: block;
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--radius);
-    margin-bottom: 1rem;
-    position:relative;
   }
-  h4 {
-    margin-bottom: 0.5rem;
+  .img-container{
+   max-width:600px
   }
-  .old-price{
-    text-decoration: line-through;
-    color: var(--clr-grey-5);
-
+  h3{
+    font-size:1.3rem
   }
-  .price {
-    color: var(--clr-primary-6);
-    margin-bottom: 0.75rem;
+  .btns{
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
   }
-  p {
-    max-width: 45em;
-    margin-bottom: 1rem;
+  button{
+  padding:.6rem 1rem;
   }
-  .btn {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.7rem;
-  }
-  .free-shipping{
-      background: var( --clr-primary-5);
-      color:white;
-      z-index:12;
-      position:absolute; 
-      padding: 8px 12px;
-      border-top-right-radius: 10px;
-      font-size: 12px;
-    }
-  @media (min-width: 992px) {
-    article {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: 2rem;
-      align-items: center;
-    }
-  }
+}
 `
 
 export default ListView

@@ -5,7 +5,7 @@ import FavoritesContent from "../components/FavoritesContent";
 
 const Favorites = () => {
    return<main>
-    <PageHero title='favorites'/>
+    <PageHero title='Favorites'/>
     <FavoritesContent/>
     </main>  
 }

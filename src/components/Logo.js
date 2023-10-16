@@ -10,10 +10,11 @@ const Logo = () => {
 
 const Wrapper=styled.h3`
 margin-bottom:0;
-font-weight:600;
-color: var( --clr-primary-5);
+font-weight:700;
+font-size: 2rem;
+color: var( --clr-primary-2);
 span{
-    color: var( --clr-primary-3);
+    color: var( --clr-primary-1);
 }
 
 `

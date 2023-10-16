@@ -10,50 +10,52 @@ const CartTotals = () => {
   const { myUser, loginWithRedirect } = useUserContext();
  
   return <Wrapper>
-    <div>
+  
       <article>
-        <h5>subtotal: <span>{formatPrice(total_amount)}</span></h5>
-        <p>shipping fee: <span>{formatPrice(shipping_fee)}</span></p>
+        <p className='subtotal'>Subtotal: <span>{formatPrice(total_amount)}</span></p>
+        <p>Shipping fee: <span>{formatPrice(shipping_fee)}</span></p>
         <hr />
-        <h4>order total: <span>{formatPrice(total_amount + shipping_fee)}</span> </h4>
+        <h5>Order total: <span>{formatPrice(total_amount + shipping_fee)}</span> </h5>
       </article>
-      {myUser ? <Link to='/checkout' className='btn'>proceed to checkout</Link> :
-      <button type='button' className='btn' onClick={loginWithRedirect}>Login</button>
+      {myUser ? <Link to='/checkout' className='generic-btn btn'>proceed to checkout</Link> :
+      <button className='generic-btn btn' onClick={loginWithRedirect}>Login</button>
       }
-    </div>
+   
   </Wrapper>
 }
 
 const Wrapper = styled.section`
   margin-top: 3rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap:1rem;
   article {
-    border: 1px solid var(--clr-grey-8);
-    border-radius: var(--radius);
-    padding: 1.5rem 3rem;
-  }
-  h4,
-  h5,
-  p {
+    
     display: grid;
-    grid-template-columns: 200px 1fr;
+    gap:1rem;
+    border: 1px solid var(--clr-grey-8);
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    font-size:1.1rem;
+    color:var(--clr-grey-1);
   }
-  p {
-    text-transform: capitalize;
+  h5{
+    font-size: 1.5rem;
+    font-weight: 500;
   }
-  h4 {
-    margin-top: 2rem;
-  }
-  @media (min-width: 776px) {
-    justify-content: flex-end;
-  }
-  .btn {
-    width: 100%;
-    margin-top: 1rem;
-    text-align: center;
-    font-weight: 700;
-  }
+.btn{
+  display: flex;
+  justify-content: center;
+  min-width:100%;
+  font-weight: 600;
+  font-size:1.3rem
+
+}
+@media (min-width: 1000px) {
+  width: fit-content;
+}
+
 `
 
 export default CartTotals

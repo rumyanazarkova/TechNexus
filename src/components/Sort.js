@@ -30,6 +30,7 @@ const Sort = () => {
 }
 
 const Wrapper = styled.section`
+ padding: 0 1rem;
   display: grid;
   grid-template-columns: auto auto 1fr auto;
   align-items: center;

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { Filters, ProductList, Sort, PageHero } from '../components'
 
 const ProductsPage = () => {
-  return <main>
+  return <Wrapper>
     <PageHero title='Products' />
-    <Wrapper className='page'>
-      <div className='section-center products'>
+    
+      <div className='filter-products'>
         <Filters />
         <div>
           <Sort />
@@ -15,20 +15,23 @@ const ProductsPage = () => {
       </div>
 
     </Wrapper>
-  </main>
+ 
 }
 
-const Wrapper = styled.div`
-  .products {
-    display: grid;
-    gap: 3rem 1.5rem;
-    margin: 4rem auto;
-  }
-  @media (min-width: 768px) {
-    .products {
-      grid-template-columns: 200px 1fr;
-    }
-  }
+const Wrapper = styled.main`
+ display: grid;
+ gap:1rem;
+ .filter-products{
+  display: grid;
+  gap:1rem
+ }
+ @media (min-width:700px ){
+  .filter-products{
+  display: flex;
+  gap:1rem
+ }
+ }
+  
 `
 
 export default ProductsPage

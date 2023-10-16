@@ -4,7 +4,6 @@ import GridView from './GridView'
 import ListView from './ListView'
 
 const ProductList = () => {
-  // <FilterContext.Provider value={{...state}}> initialState ot filter_context
   const { filtered_products: products, grid_view } = useFilterContext()
 
   if(products.length<1){

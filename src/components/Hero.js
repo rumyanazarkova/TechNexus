@@ -6,71 +6,54 @@ import heroImg from '../assets/hero-img.jpg'
 
 const Hero = () => {
   return <Wrapper >
-    <section className='section-center'>
-      <div className='main-img'>
-      <p>Digital Dreams <br/>
+    <div className='img-container'>
+      <p>Digital Dreams <br />
         Delivered</p>
-      </div>
-      <article className='content'>
-        <Link to='/products' className='btn hero-btn'>shop now</Link>
-      </article>
-    </section>
+      <img src={heroImg} alt='hero-image' />
+    </div>
+    <Link to='/products' className='shop-btn home-btn'>SHOP NOW</Link>
   </Wrapper>
 }
 
 const Wrapper = styled.section`
-margin-bottom:3rem;
-  .main-img {
-    min-height: 25rem;
-    background-image: url(${heroImg});
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-bottom:2rem;
-    margin-top:2rem;
-  }
+display: flex;
+flex-direction: column;
+gap:1rem;
+.img-container{
+position: relative;
+}
+ img{
+  width:100%;
+ }
+p{
+  display:none;
+}
+.shop-btn{
+ padding:.5rem 1rem;
+}
+
+ @media (min-width: 1000px){
   p{
-    color:white;
-    letter-spacing:var(--spacing);
-    font-size: 1.5rem;
-    padding-left:17rem;
-    padding-top: 2rem;
-    @media(max-width: 1200px){
-    padding-left:3rem;
-    }
-    @media(max-width:650px){
-      display:none;
-    }
-  }
+  display:inline;  
+  position: absolute;
+  color:white;
+  font-size: 2.5rem;
+  top:2rem;
+  left:5rem;
+ }
+ .shop-btn{
+ padding:.7rem 2rem;
+ font-size:1.7rem;
+}
+}
 
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
-    .hero-btn {
-    
-      padding: 10px 20px;
-      font-size: 17px;
-      color: #fff;
-      background: linear-gradient(50deg,var(--clr-primary-6),var(--clr-primary-3)); 
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
+@media (min-width: 1500px){
+  p{
+  font-size: 4rem;
+  left:9rem;
+ }
+}
 
-      &:hover {
-        background: var(--clr-primary-8);
-      }
-    }
-  }
-
-  @media (min-width: 992px) {
-    align-items: center;
-   
-    grid-template-columns: 1fr 1fr;   
-  }
-  
 `
 
 export default Hero

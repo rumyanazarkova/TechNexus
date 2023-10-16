@@ -1,6 +1,6 @@
 import FeaturedProducts from './FeaturedProducts'
 import Navbar from './Navbar'
-import CartButtons from './CartButtons'
+import NavIcons from './NavIcons'
 import Footer from './Footer'
 import Sidebar from './Sidebar'
 import Hero from './Hero'
@@ -20,7 +20,7 @@ import StripeCheckout from './StripeCheckout'
 export {
   FeaturedProducts,
   Navbar,
-  CartButtons,
+  NavIcons,
   Footer,
   Sidebar,
   Hero,

@@ -3,9 +3,9 @@ import styled from 'styled-components'
 
 const Contact = () => {
   return <Wrapper>
-    <div className='section-center'>
-      <h3>Join our newsletter and get 20% off</h3>
-      <div className='content'>
+   
+      <h2>Join our newsletter and get 20% off</h2>
+    
         <p>
           Stay ahead: discover exciting deals and new innovations in Our latest newsletter!
         </p>
@@ -13,94 +13,35 @@ const Contact = () => {
           <input type='email' className='form-input' placeholder='enter email' name='_replyto' />
           <button type='submit' className='submit-btn'>subscribe</button>
         </form>
-      </div>
-    </div>
+     
+  
   </Wrapper>
 }
 const Wrapper = styled.section`
-  padding: 5rem 0;
-  h3 {
-    text-transform: none;
-  }
-  p {
-    line-height: 2;
-    max-width: 45em;
-    color: var(--clr-grey-5);
-  }
-  .contact-form {
-    width: 90vw;
-    max-width: 500px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-  }
-  .form-input{
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  .submit-btn {
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-  }
-  .form-input {
-    border-right: none;
-    color: var(--clr-grey-3);
-    border-top-left-radius: var(--radius);
-    border-bottom-left-radius: var(--radius);
-  }
-  .submit-btn {
-    border-top-right-radius: var(--radius);
-    border-bottom-right-radius: var(--radius);
-  }
-  .form-input::placeholder {
-    color: var(--clr-black);
-    text-transform: capitalize;
-  }
-  .submit-btn {
-    background: var(--clr-primary-5);
-    text-transform: capitalize;
-    letter-spacing: var(--spacing);
-    cursor: pointer;
-    transition: var(--transition); 
-  }
-  .submit-btn:hover {
-    color: var(--clr-white);
-  }
-  @media (min-width: 992px) {
-    .content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      gap: 8rem;
-      margin-top: 2rem;
-    }
-    p {
-      margin-bottom: 0;
-    }
-  }
-  @media (min-width: 1280px) {
-    padding: 15rem 0;
-  }
-  @media(max-width:650px){
-    .section-center{
-      padding:0;
-    }
-    .content {
-      display: grid;
-      grid-template-rows:1fr 1fr;
-      max-width:300px;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .form-input{
-      min-width:70%;
-    }
-    .submit-btn{
-      min-width:30%;
-    }
+margin-left:0;
+padding:3rem;
+display: flex;
+flex-direction: column;
+gap:.5rem;
+p{
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.form-input{
+ padding:.5rem 1rem;
+} 
+.submit-btn{
+  padding:.5rem 1rem;
+  color: white;
+  border:1px solid var(--clr-primary-1);
+  background: var(--clr-primary-1);
+  text-transform:capitalize;
+}
+.submit-btn:hover{
+  border:1px solid var(--clr-primary-4);
+  background: var(--clr-primary-4);
+}
  
- 
-  }
 `
 
 export default Contact

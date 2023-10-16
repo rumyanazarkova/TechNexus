@@ -20,7 +20,6 @@ const Filters = () => {
 
 
   return <Wrapper>
-    <div className='content'>
       <form onSubmit={(e) => e.preventDefault()}>
         {/*search input*/}
         <div className='form-control'>
@@ -29,7 +28,7 @@ const Filters = () => {
         {/*categories*/}
         <div className='form-control'>
           <h5>category</h5>
-          <div>{
+          <div className='category-container'>{
             categories.map((c, index) => {
               return <button key={index}
                 onClick={updateFilters}
@@ -70,20 +69,20 @@ const Filters = () => {
                 return <button key={index}
                   name='color'
                   style={{ background: c }}
-                  className={`${color === c ? 'color-btn active' : 'color-btn'}`}
+                  className={`${color === c ? 'color-btn color-active' : 'color-btn'}`}
                   data-color={c}
                   onClick={updateFilters}
                 >
-                  {color === c ? <FaCheck /> : null}
+                 
                 </button>
               })
             }
           </div>
         </div>
         {/*price*/}
-        <div className='form-control'>
+        <div className='form-control price-container'>
           <h5>price</h5>
-          <p className='price'>{formatPrice(price)}</p>
+          <p>{formatPrice(price)}</p>
           <input type='range'
             name='price'
             onChange={updateFilters}
@@ -107,115 +106,116 @@ const Filters = () => {
         {''}
         clear filters
       </button>
-    </div>
+   
   </Wrapper>
 }
 
 const Wrapper = styled.section`
-  .form-control {
-    margin-bottom: 1.25rem;
-    h5 {
-      margin-bottom: 0.5rem;
-    }
-  }
-  .search-input {
-    padding: 0.5rem;
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    letter-spacing: var(--spacing);
-  }
-  .search-input::placeholder {
-    text-transform: capitalize;
-  }
+padding:0 1rem;
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-control{
+   display: flex;
+   flex-direction: column; 
+   gap: 0.5rem;
+}
+h5,
+label,
+.price{
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+.search-input,
+.company{
+  width: fit-content;
+  padding:.4rem;
+  border:none;
+  background: var(--clr-grey-10);
+  letter-spacing: .1ch;
+  text-transform: capitalize;
+}
+.category-container{
+  display:flex;
+  gap: .5rem;
+}
+.category-container button, .all-btn{
+font-size: 1rem;
+text-transform: capitalize;
+border:none;
+background: transparent;
+color: var(--clr-grey-4);
+}
+.category-container .active, .active{
+  color: var(--clr-primary-1);
+ font-weight: 600;
+ text-decoration: underline;
+}
+.colors{
+  display: flex;
+  gap:.4rem;
+  max-width: 40%;
+  flex-wrap: wrap;
+}
+.color-btn{
+width: 1.2rem;
+height: 1.2rem;
+border-radius: 50%;
+border: 1px solid var(--clr-grey-6);
+}
+.color-active{
+  border: 4px solid var(--clr-white);
+  outline: 2px solid var(--clr-black);
+}
+.shipping{
+  display: inline;
+}
+.shipping input{
+ margin-left: .5rem;
+ width: 15px;
+ height:15px;
+}
+.price-container{
+  font-weight:600;
+  font-size: 1.2rem;
+  gap: 0.2rem;
+}
+.price-container input{
+    max-width: 50%;
+}
+.clear-btn{
+  font-size: 1rem;
+  text-transform:capitalize;
+  color: white;
+  background: var(--clr-red-dark);
+  border:none;
+  padding: .5rem 1rem;
+  margin-top:1rem;
+ 
+}
+@media (min-width: 700px) {
+  display:flex;
+  flex-direction: column;
+  max-width: 250px;
 
-  button {
-    display: block;
-    margin: 0.25em 0;
-    padding: 0.25rem 0;
-    text-transform: capitalize;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid transparent;
-    letter-spacing: var(--spacing);
-    color: var(--clr-grey-5);
-    cursor: pointer;
-  }
-  .active {
-    border-color: var(--clr-grey-5);
-  }
-  .company {
-    background: var(--clr-grey-10);
-    border-radius: var(--radius);
-    border-color: transparent;
-    padding: 0.25rem;
-  }
-  .colors {
-    display: grid;
-    grid-template-columns: repeat(5, 1.5rem);
-    align-items: center;
-  }
-  .color-btn {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
-    border: 1px solid var(--clr-grey-6);
-    cursor: pointer;
-   
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      z-index: -10;
-      font-size: 0.5rem;
-      color: var(--clr-white);
-      width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    border: 0.65rem solid var(--clr-primary-7);
-    }
-  }
-  .all-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    opacity: 1;
-  }
-  .active {
-    color:var(--clr-primary-3);
-    font-weight:500;
-  }
-  .all-btn .active {
-    text-decoration: underline;
-  }
-  .price {
-    margin-bottom: 0.25rem;
-  }
-  .shipping {
-    display: grid;
-    grid-template-columns: auto 1fr 1fr 1fr;
-    align-items: center;
-    text-transform: capitalize;
-    column-gap: 0.1rem;
-    font-size: 1rem;
-    max-width: 200px;
-  }
-  .clear-btn {
-    background: var(--clr-red-dark);
-    color: var(--clr-white);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius);
-  }
-  @media (min-width: 768px) {
-    .content {
-      position: sticky;
-      top: 1rem;
-    }
-  }
+  .category-container{
+  display:flex;
+  flex-direction: column;
+  align-items: start;
+  gap: .6rem;
+}
+.colors,
+.price input
+{
+  min-width: 100%;
+}
+.clear-btn{
+ max-width: 150px;
+}
+}
 `
 
 export default Filters

@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
 
 const AddToCart = ({ product }) => {
- 
+
   const { id, stock, colors } = product;
-  const {addToCart,getShippingFee}=useCartContext()
+  const { addToCart, getShippingFee } = useCartContext()
   const [mainColor, setMainColor] = useState(colors[0]);
   const [amount, setAmount] = useState(1);
 
@@ -35,71 +34,52 @@ const AddToCart = ({ product }) => {
 
   return <Wrapper>
     <div className='colors'>
-      <span>colors:</span>
-      <div>{
+      <span>Colors:</span>
+      <div className='colors-btns-container'>{
         colors.map((color, index) => {
           return <button key={index} style={{ background: color }} className={`${mainColor === color ? 'color-btn active' : 'color-btn'}`} onClick={() => setMainColor(color)}>
-            {mainColor === color ? <FaCheck /> : null}
           </button>
         })
       }</div>
     </div>
-    <div className='btn-container'>
+ 
       <AmountButtons amount={amount} increase={increase} decrease={decrease} />
-      <Link to='/cart' className='btn' onClick={()=>{
-        addToCart(id,mainColor,amount,product)
+      <Link to='/cart' className='generic-btn' onClick={() => {
+        addToCart(id, mainColor, amount, product)
         getShippingFee(id)
-        }}>add to cart</Link>
-    </div>
+      }}>add to cart</Link>
+   
   </Wrapper>
 }
 
 const Wrapper = styled.section`
-  margin-top: 2rem;
-  .colors {
-    display: grid;
-    grid-template-columns: 125px 1fr;
-    align-items: center;
-    margin-bottom: 1rem;
-    span {
-      text-transform: capitalize;
-      font-weight: 700;
-    }
-    div {
-      display: flex;
-    }
-  }
-  .color-btn {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background: #222;
-    margin-right: 0.5rem;
-    border: 0.3px solid grey;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      font-size: 1rem;
-      color: var(--clr-primary-8);
-    }
-  }
-  .active {
-    opacity: 1;
-  }
-  .btn-container {
-    margin-top: 2rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn {
-    margin-top: 1rem;
-    width: 140px;
-    align-items: center;
-    padding-left:17px;
-  }
+ display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+.colors{
+  display: flex;
+  gap:1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var( --clr-grey-3);
+  align-items: center;
+}
+.colors-btns-container{
+  display: flex;
+  gap: 0.5rem;
+}
+.color-btn{
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius:50%;
+  border: 1px solid var(--clr-grey-6);
+}
+.active{
+  border: 4px solid var(--clr-white);
+  outline: 2px solid var(--clr-black);
+}
+.generic-btn{
+  max-width:fit-content;
+}
 `
 export default AddToCart

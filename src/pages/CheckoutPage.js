@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 const CheckoutPage = () => {
   const {cart} = useCartContext()
   return <main>
-    <PageHero title='checkout' />
-    <Wrapper className='page'>
+    <PageHero title='Checkout' />
+    <Wrapper>
       {cart.length < 1 ? <div className='empty'>
         <h2>Your cart is empty</h2>
         <Link to='/products' className='btn'>Fill it</Link>
@@ -21,6 +21,7 @@ const CheckoutPage = () => {
   </main>
 }
 const Wrapper = styled.div`
+border: 1px solid red;
 display:flex;
 align-items: center;
 justify-content:center;

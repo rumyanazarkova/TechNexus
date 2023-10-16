@@ -8,75 +8,67 @@ import FavoritesItem from './FavoritesItem'
 const FavoritesContent = () => {
   const { favorites, clearFavorites } = useFavoritesContext();
 
-  return <Wrapper className='section section-center'>
-     <div className='content'>
-      <h5>Favorites</h5>
-      <span></span>
-    </div>
+  return <Wrapper>
+      <h5 className='heading'>Your Favorites</h5>
     <hr/>
+    <div className='fav-items-container'>
     {
       favorites.map((item) => {
         return <FavoritesItem key={item.id} {...item} />
       })
     }
+    </div>
     <hr />
-    <div className='link-container'>
-      <Link to='/products' className='link-btn'>
+    <div className='btns-container'>
+      <Link to='/products' className='generic-btn'>
         continue shopping
       </Link>
-      <button type='button' className='link-btn clear-btn' onClick={clearFavorites}>
-        clear favorites
+      <button type='button' className='clear-btn' onClick={clearFavorites}>
+        Clear Favorites
       </button>
     </div>
   </Wrapper>
 }
 const Wrapper = styled.section`
- display: block;
-    .content {
-      display: grid;
-      grid-template-columns: 316px 1fr 1fr 1fr auto;
-      justify-items: center;
-      column-gap: 1rem;
-      h5 {
-        color: var(--clr-grey-5);
-        font-weight: 400;
-      }
-    }
-
-    span {
-      width: 2rem;
-      height: 2rem;
-    }
-    hr {
-      margin-top: 1rem;
-      margin-bottom: 3rem;
-    }
-  .link-container {
+padding: 1rem 2rem;
+display: grid;
+text-align:center;
+gap:1rem;
+.heading{
+  font-size: 2rem;
+  font-weight:700;
+}
+.fav-items-container{
+  display: grid;
+  gap:2rem;
+}
+  .btns-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 2rem;
-  }
-  .link-btn {
-    background: transparent;
-    border-color: transparent;
-    text-transform: capitalize;
-    padding: 0.25rem 0.5rem;
-    background: var(--clr-primary-3);
-    color: var(--clr-white);
-    border-radius: var(--radius);
-    letter-spacing: var(--spacing);
-    font-weight: 400;
-    cursor: pointer;
-    &:hover {
-        background: var(--clr-primary-8);
-      }
+    margin-top:1rem;
+
   }
   .clear-btn {
     background: var(--clr-black);
+    color:var(--clr-white);
+    padding:.5rem 1rem;
+    border:none;
+    font-size: 1.1rem;
+    border-radius: 5px;
     &:hover {
         background: var(--clr-red-light);
         color:white;
       }
+  }
+  @media(min-width:800px){
+    .fav-items-container{
+ grid-template-columns:1fr 1fr;
+} 
+  }
+  @media(min-width:1200px){
+    .fav-items-container{
+ grid-template-columns:1fr 1fr 1fr;
+} 
   }
 `
 export default FavoritesContent

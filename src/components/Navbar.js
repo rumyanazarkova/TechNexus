@@ -4,102 +4,96 @@ import Logo from './Logo'
 import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { links } from '../utils/constants'
-import CartButtons from './CartButtons'
+import NavIcons from './NavIcons'
 import { useProductsContext } from '../context/products_context'
 import { useUserContext } from '../context/user_context'
 
 const Nav = () => {
   const { openSidebar } = useProductsContext()
- const {myUser}=useUserContext()
+  const { myUser } = useUserContext()
   return <NavContainer>
-    <div className='nav-center'>
-      <div className='nav-header'>
-        <Link to='/'><Logo/></Link>
-        <button type='button' className='nav-toggle' onClick={openSidebar}>
-          <FaBars />
-        </button>
-      </div>
-      <ul className='nav-links'>
-        {links.map((link) => {
-          const { id, text, url } = link
-          return <li key={id}><Link to={url}>{text}</Link></li>
-        })}
-        {
-          myUser && <li>
-            <Link to='/checkout'>checkout</Link>
-          </li>
-        }
-      </ul>
-      <CartButtons />
+
+    <div className='nav-header'>
+      <Link to='/'><Logo /></Link>
+      <button className='nav-toggle' onClick={openSidebar}>
+        <FaBars />
+      </button>
+    </div>
+
+    <ul className='nav-links'>
+      {links.map((link) => {
+        const { id, text, url } = link
+        return <li key={id}><Link to={url}>{text}</Link></li>
+      })}
+      {
+        myUser && <li>
+          <Link to='/checkout'>checkout</Link>
+        </li>
+      }
+    </ul>
+
+    <div className='nav-icons'>
+      <NavIcons />
     </div>
   </NavContainer>
 }
 
 const NavContainer = styled.nav`
-  height: 5rem;
+ padding:1rem 2rem;
+ .nav-links,
+ .nav-icons{
+  display: none;
+ }
+ .nav-header{
   display: flex;
+ justify-content: space-between;
   align-items: center;
-  justify-content: center;
+ }
+ .nav-toggle{
+  display: flex;
+  height: fit-content;
+  border:none;
+  background: transparent;
+  font-size: 2rem;
+  color: var(--clr-primary-1);
+ }
+ .nav-toggle:hover{
+  color: var(--clr-primary-4);
+ }
+ @media (min-width: 1000px) {
+  display: flex;
+justify-content:space-between;
+  align-items:center;
+  .nav-toggle{
+    display:none;
+  }
+  .nav-links{
+  display: flex;
+  gap:1rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-align: center;
+  padding-left: 5rem;
+ }
+ a{
+  color:var(--clr-grey-3);
+ }
+ a:hover{
+  color: var(--clr-primary-4);
+ }
+ .nav-icons{
+  display: flex;
+ }
+ }
+ @media (min-width: 1300px)   {
+  .nav-links{
+   padding-left:7rem; 
+  font-size: 1.5rem;
+  
+ }
+ }
 
-  .nav-center {
-    width: 90vw;
-    margin: 0 auto;
-    max-width: var(--max-width);
-  }
-  .nav-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    img {
-      width: 175px;
-      margin-left: -15px;
-    }
-  }
-  .nav-toggle {
-    background: transparent;
-    border: transparent;
-    color: var(--clr-primary-3);
-    cursor: pointer;
-    svg {
-      font-size: 2rem;
-    }
-  }
-  .nav-links {
-    display: none;
-  }
-  .cart-btn-wrapper {
-    display: none;
-  }
-  @media (min-width: 1174px) {
-    .nav-toggle {
-      display: none;
-    }
-    .nav-center {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-    }
-    .nav-links {
-      display: flex;
-      justify-content: center;
-      li {
-        margin: 0 0.5rem;
-      }
-      a {
-        color: var(--clr-grey-3);
-        font-size: 1.3rem;
-        text-transform: capitalize;
-        letter-spacing: var(--spacing);
-        padding: 0.5rem;
-        &:hover {
-          border-bottom: 2px solid var(--clr-primary-7);
-        }
-      }
-    }
-    .cart-btn-wrapper {
-      display: grid;
-    }
-  }
 `
 
 export default Nav

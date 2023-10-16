@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     font-size: 1rem;
     margin-right: 0.25rem;
   }
-  margin-bottom: 0.5rem;
+ 
 `
 
 export default FeaturedStars

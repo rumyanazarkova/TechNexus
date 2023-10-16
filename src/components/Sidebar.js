@@ -5,7 +5,7 @@ import { useProductsContext } from '../context/products_context'
 import { FaTimes } from 'react-icons/fa'
 import { links } from '../utils/constants'
 import styled from 'styled-components'
-import CartButtons from './CartButtons'
+import NavIcons from './NavIcons'
 import { useUserContext } from '../context/user_context'
 
 const Sidebar = () => {
@@ -33,14 +33,16 @@ const Sidebar = () => {
             <Link to='/checkout' onClick={closeSidebar}>Checkout </Link>
           </li>
         )}
-        <CartButtons />
+        <div className='nav-icons'>
+        <NavIcons />
+        </div>
       </ul>
     </aside>
   </SidebarContainer>
 }
 
 const SidebarContainer = styled.div`
-  text-align: center;
+
   .sidebar-header {
     display: flex;
     justify-content: space-between;
@@ -60,20 +62,17 @@ const SidebarContainer = styled.div`
   .close-btn:hover {
     color: var(--clr-red-light);
   }
-  .logo {
-    justify-self: center;
-    height: 45px;
-  }
+
   .links {
     margin-bottom: 2rem;
   }
   .links a {
     display: block;
     text-align: left;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-transform: capitalize;
     padding: 1rem 1.5rem;
-    color: black;
+    color: var(--clr-black);
     transition: var(--transition);
     letter-spacing: var(--spacing);
   }
@@ -100,14 +99,23 @@ const SidebarContainer = styled.div`
     transform: translate(0);
     z-index: 999;
   }
-  .cart-btn-wrapper {
-    margin: 2rem auto;
+  .nav-icons{
+    display: flex;
+    justify-content: center;
+    span{
+  left:88%;
+  bottom:30px;
+}
+ .icon,
+ .auth-btn{
+  font-size: 1.4rem;
+}
+.icon:hover{
+color:var(--clr-primary-4);
+background: transparent;
+}
   }
-  @media screen and (min-width: 992px) {
-    .sidebar {
-      display: none;
-    }
-  }
+
 `
 
 export default Sidebar

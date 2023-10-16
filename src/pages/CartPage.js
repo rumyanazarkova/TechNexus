@@ -7,16 +7,16 @@ import { CartContent, PageHero } from '../components'
 const CartPage = () => {
   const {cart} = useCartContext();
   if(cart.length<1){
-    return <Wrapper className='page-100'>
+    return <Wrapper>
       <div className='empty'>
         <h2>Your cart is empty</h2>
-        <Link to='/products' className='btn'>fill it</Link>
+        <Link to='/products' className='generic-btn btn'>fill it</Link>
       </div>
 
     </Wrapper>
   }
   return <main>
-    <PageHero title='cart'/>
+    <PageHero title='Cart'/>
     <Wrapper className='page'>
      <CartContent/>
     </Wrapper>
@@ -24,16 +24,8 @@ const CartPage = () => {
 }
 
 const Wrapper = styled.main`
-  .empty {
-    text-align: center;
-    h2 {
-      margin-bottom: 1rem;
-      text-transform: none;
-    }
- .btn{
-  margin-top: 1rem;
- }
-  }
+padding:2rem;
+
 `
 
 export default CartPage

@@ -12,23 +12,17 @@ const GridView = ({products}) => {
     </Wrapper>
 }
 
-const Wrapper = styled.section`
-  img {
-    min-height: 175px;
-  }
-
+const Wrapper = styled.main`
   .products-container {
     display: grid;
-    grid-template-columns: auto;
-    gap: 2rem 1.5rem;
+    gap:2rem;
   }
-
   @media (min-width: 992px) {
     .products-container {
       grid-template-columns: repeat(2, 1fr);
     }
   }
-  @media (min-width: 1170px) {
+  @media (min-width: 1300px) {
     .products-container {
       grid-template-columns: repeat(3, 1fr);
     }
