@@ -92,7 +92,11 @@ font-size: 1.1rem;
   justify-content: center;
   gap:1rem;
 }
-
+@media (prefers-color-scheme: dark) {
+.name-stars h5{
+  color: var(--clr-white);
+}
+}
 `
 
 export default FavoritesItem

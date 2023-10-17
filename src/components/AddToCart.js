@@ -81,5 +81,14 @@ const Wrapper = styled.section`
 .generic-btn{
   max-width:fit-content;
 }
+@media (prefers-color-scheme: dark) {
+  .colors{
+  color: var( --clr-white);
+}
+.active{
+  border: 3px solid var(--clr-black);
+  outline: 2px solid var(--clr-white);
+}
+}
 `
 export default AddToCart

@@ -93,5 +93,10 @@ background: var(--clr-primary-2);
 top: 8.3rem;
 }
 
+@media (prefers-color-scheme: dark) {
+h5{
+  color:var(--clr-white);
+}
+}
 `
 export default FeaturedItem

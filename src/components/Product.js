@@ -71,7 +71,16 @@ display: flex;
 justify-content: space-between;
 gap:1rem;
 }
-
+@media (prefers-color-scheme: dark) {
+.favorites{
+  background: var(--clr-white);
+  padding-top:1rem;
+  padding-left:1rem;
+}  
+h5{
+  color: var(--clr-white);
+}
+}
 
 `
 export default Product

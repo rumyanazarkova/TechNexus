@@ -93,6 +93,9 @@ justify-content:space-between;
   
  }
  }
+ @media (prefers-color-scheme: dark) {
+  background: var(--clr-white);
+}
 
 `
 

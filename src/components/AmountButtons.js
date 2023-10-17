@@ -22,6 +22,11 @@ background: transparent;
 border: none;
 font-size: 1rem;
 }
+@media (prefers-color-scheme: dark) {
+  .amount-btn{
+    color:var(--clr-white);
+  }
+}
 `
 
 export default AmountButtons

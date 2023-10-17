@@ -67,6 +67,7 @@ background-image: url(${baner2});
  place-items: center;
  border-radius: 10px;
  gap:1rem;
+ color:black;
  }
  .icon{
   display: flex;

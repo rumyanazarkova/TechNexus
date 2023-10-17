@@ -42,7 +42,6 @@ const Sidebar = () => {
 }
 
 const SidebarContainer = styled.div`
-
   .sidebar-header {
     display: flex;
     justify-content: space-between;
@@ -114,7 +113,13 @@ const SidebarContainer = styled.div`
 color:var(--clr-primary-4);
 background: transparent;
 }
+}
+@media (prefers-color-scheme: dark) {
+  .links a:hover {
+    color: var(--clr-black);
+    font-weight:500;
   }
+}
 
 `
 

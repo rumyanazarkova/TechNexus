@@ -113,6 +113,11 @@ const Wrapper = styled.main`
   padding:.6rem 1rem;
   }
 }
+@media (prefers-color-scheme: dark) {
+  h3{
+    color:var(--clr-white)
+  }
+}
 `
 
 export default ListView

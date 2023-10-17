@@ -49,13 +49,13 @@ h2{
   gap:2rem;
 }
 .products-btn{
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 1rem;
 }
 @media (min-width: 800px) {
 .products-container{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap:1rem;
+  gap:2rem;
 }
 }
 @media (min-width: 1300px) {
@@ -63,6 +63,9 @@ h2{
 .products-container{
   grid-template-columns: repeat(3,1fr);
 }
+}
+@media (prefers-color-scheme: dark) {
+  background:transparent;
 }
 
 `

@@ -7,10 +7,10 @@ const Sort = () => {
   const { filtered_products: products, grid_view, setGridView, setListView, sort, updateSort } = useFilterContext()
   return <Wrapper>
     <div className='btn-container'>
-      <button type='button' className={`${grid_view ? 'active' : null}`} onClick={setGridView}>
+      <button className={`${grid_view ? 'active' : null}`} onClick={setGridView}>
         <BsFillGridFill />
       </button>
-      <button type='button' className={`${!grid_view ? 'active' : null}`} onClick={setListView}>
+      <button className={`${!grid_view ? 'active' : null}`} onClick={setListView}>
         <BsList />
       </button>
     </div>
@@ -91,6 +91,18 @@ const Wrapper = styled.section`
     font-size: 1rem;
     text-transform: capitalize;
   }
+  @media (prefers-color-scheme: dark) {
+  .btn-container {
+    button {
+      background:var(--clr-black);
+      color: var(--clr-white);
+    }
+    .active {
+      background: var(--clr-white);
+      color: var(--clr-black);
+    }
+  }
+}
 `
 
 export default Sort

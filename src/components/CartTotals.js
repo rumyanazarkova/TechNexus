@@ -31,7 +31,6 @@ const Wrapper = styled.section`
   width: 100%;
   gap:1rem;
   article {
-    
     display: grid;
     gap:1rem;
     border: 1px solid var(--clr-grey-8);
@@ -54,6 +53,11 @@ const Wrapper = styled.section`
 }
 @media (min-width: 1000px) {
   width: fit-content;
+}
+@media (prefers-color-scheme: dark) {
+  article{
+  color:var(--clr-white);
+  }
 }
 
 `

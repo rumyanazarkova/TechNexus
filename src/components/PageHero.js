@@ -22,6 +22,14 @@ const Wrapper = styled.div`
   a:hover {
     color: var(--clr-primary-4);
   }
+  @media (prefers-color-scheme: dark) {
+  background: var(--clr-black);
+  color: var(--clr-grey-4);
+  a {
+    color: var(--clr-white);
+    transition: var(--transition);
+  }
+}
 `
 
 export default PageHero

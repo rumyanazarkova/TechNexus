@@ -53,7 +53,7 @@ align-items: center;
 gap: 0.3rem;
 border: none;
 background: transparent;
-color:inherit;
+color:var(--clr-black);
 font-size: inherit;
 letter-spacing:.1ch;
 }

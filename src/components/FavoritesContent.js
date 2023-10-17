@@ -23,7 +23,7 @@ const FavoritesContent = () => {
       <Link to='/products' className='generic-btn'>
         continue shopping
       </Link>
-      <button type='button' className='clear-btn' onClick={clearFavorites}>
+      <button type='button' className='remove-btn' onClick={clearFavorites}>
         Clear Favorites
       </button>
     </div>
@@ -48,18 +48,6 @@ gap:1rem;
     margin-top:1rem;
 
   }
-  .clear-btn {
-    background: var(--clr-black);
-    color:var(--clr-white);
-    padding:.5rem 1rem;
-    border:none;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    &:hover {
-        background: var(--clr-red-light);
-        color:white;
-      }
-  }
   @media(min-width:800px){
     .fav-items-container{
  grid-template-columns:1fr 1fr;
@@ -70,5 +58,8 @@ gap:1rem;
  grid-template-columns:1fr 1fr 1fr;
 } 
   }
+  
+
+  
 `
 export default FavoritesContent

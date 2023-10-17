@@ -154,6 +154,11 @@ p{
   font-size:1.2rem;
 }
 }
+@media (prefers-color-scheme: dark) {
+  .item-small-info span{
+  color: var( --clr-white);
+}
+}
 
 `
 

@@ -24,6 +24,12 @@ const Wrapper = styled.footer`
   h5 {
     color: var(--clr-white);
   }
+  @media (prefers-color-scheme: dark) {
+  background: var(--clr-white);
+  h5 {
+    color: var(--clr-black);
+  }
+}
 
 `
 

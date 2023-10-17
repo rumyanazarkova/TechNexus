@@ -183,9 +183,7 @@ border: 1px solid var(--clr-grey-6);
   font-size: 1.2rem;
   gap: 0.2rem;
 }
-.price-container input{
-    max-width: 50%;
-}
+
 .clear-btn{
   font-size: 1rem;
   text-transform:capitalize;
@@ -214,6 +212,13 @@ border: 1px solid var(--clr-grey-6);
 }
 .clear-btn{
  max-width: 150px;
+}
+}
+@media (prefers-color-scheme: dark) {
+
+  .color-active{
+  border: 3px solid var(--clr-black);
+  outline: 2px solid var(--clr-white);
 }
 }
 `
